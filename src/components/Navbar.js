@@ -1,10 +1,11 @@
 import React from "react";
-
+// import background from '../images/background-image.jpg'
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
-    <><nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-black mb-3">
-    {/* <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3" style={{backgroundImage: "linear-gradient(to right, #f44336, #9C27B0, #2196F3, #4CAF50, #FFEB3B, #FF9800)"}}>  */}
+    <>
+    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-black mb-3">
+    {/* <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3" style={{backgroundImage: `url('${background}')`}}>  */}
              <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
