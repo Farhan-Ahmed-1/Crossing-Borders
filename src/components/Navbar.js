@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import background from '../images/background-image.jpg'
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -47,12 +48,12 @@ export default function Navbar({ fixed }) {
                 </a>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
+                  to="/map"
                 >
                   <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Pin</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
