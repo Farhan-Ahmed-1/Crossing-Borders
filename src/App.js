@@ -1,6 +1,7 @@
 import logo from './images/Rotating_earth.gif';
 import './App.css';
 import Navbar from './components/Navbar';
+import SocialLInks from './components/SocialLInks';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   <div className='App'>
       <Navbar/> 
       <img src={logo} />
+      <SocialLInks/>
     </div>
   );
 }
