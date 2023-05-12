@@ -2,6 +2,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import './login.css';
 import { login } from "../API_calls/API";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // Creating schema
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -12,16 +14,23 @@ const schema = Yup.object().shape({
     .min(8, "Password must be at least 8 characters"),
 });
 
-function Login() {
+function Login({setUser, user}) {
+  const navigate = useNavigate();
   return (
     <>
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => {
+        onSubmit={async(values) => {
           // Alert the input values of the form that we filled
-        login(values);
+        const response = await login(values);
+        if(response!=="error"){
+          console.log(response);
+          setUser(response);
+          console.log(user);
+          navigate("/");
+        }
         }}
       >
         {({
@@ -69,6 +78,7 @@ function Login() {
                 {/* Click on submit button to submit the form */}
                 <button type="submit">Login</button>
               </form>
+              <Link to={'/register'}>new User? Register here</Link>
             </div>
           </div>
         )}

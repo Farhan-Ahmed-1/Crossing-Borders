@@ -2,8 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {BiWorld} from 'react-icons/bi'
 import {HiOutlineBars3BottomRight} from 'react-icons/hi2'
-export default function Navbar({ fixed }) {
+export default function Navbar({ user, setUser }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  function handleLogout(){
+    setUser({});
+    console.log(user)
+    // localStorage.removeItem("token");
+    // window.location.reload();
+  }
   return (
     <>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900">
@@ -49,12 +55,17 @@ export default function Navbar({ fixed }) {
                 </Link>
               </li>
               <li className="nav-item">
+                {user && user._id ?
+                <button className="ml-2 px-3 py-2 cursor-pointer flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" onClick={handleLogout}>Logout</button>
+                :
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  to="/"
+                  to="/login"
                 >
                   <span className="ml-2">Login</span>
                 </Link>
+                
+              }
               </li>
             </ul>
           </div>

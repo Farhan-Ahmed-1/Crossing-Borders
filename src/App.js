@@ -10,10 +10,12 @@ import { useState } from "react";
 import { Data } from "./utils/Data";
 import BarChart from './Charts/BarChart';
 import Login from './login-register/login';
+import Register from './login-register/register';
 
 Chart.register(CategoryScale);
 
 function App() {
+  const [user, setUser] = useState({});
   const [chartData, setChartData] = useState({
     labels: Data.map((data) => data.year), 
     datasets: [
@@ -30,13 +32,19 @@ function App() {
   });
   return (
   <div className='App'>
-      <Navbar/>
+      <Navbar user={user} setUser={setUser}/>
       <Routes>
+      <Route exact path='/' element={<Home />} />
+        {user && user._id ? 
         <Route exact path='/' element={<Home />} />
+        :
+        <Route path='/login' element={<Login setUser={setUser} />} />
+      }
         <Route path='/map' element={<Map />} />
         {/* <Route path='/social' element={<SocialLInks />} /> */}
         <Route path='/chart' element={<BarChart chartData={chartData}/>} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login setUser={setUser} user={setUser} />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
   );
