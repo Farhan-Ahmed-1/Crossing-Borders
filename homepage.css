@@ -38,9 +38,11 @@
     font-size: 14px;
   }
     
-  .farhan{
+  .moments{
     color: #1280c9;
-    margin: 20px 0px 0px;
+    position: static;
+    background: none;
+    /* margin: 20px 0px 0px; */
   }
 
 
