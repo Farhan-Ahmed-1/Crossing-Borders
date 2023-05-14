@@ -15,7 +15,7 @@ import Register from './login-register/register';
 Chart.register(CategoryScale);
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
   const [chartData, setChartData] = useState({
     labels: Data.map((data) => data.year), 
     datasets: [
