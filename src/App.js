@@ -35,12 +35,8 @@ function App() {
       <Navbar user={user} setUser={setUser}/>
       <Routes>
       <Route exact path='/' element={<Home />} />
-        {user && user._id ? 
-        <Route exact path='/' element={<Home />} />
-        :
-        <Route path='/login' element={<Login setUser={setUser} />} />
-      }
-        <Route path='/map' element={<Map />} />
+      <Route path='/map' element={<Map />} />
+        
         {/* <Route path='/social' element={<SocialLInks />} /> */}
         <Route path='/chart' element={<BarChart chartData={chartData}/>} />
         <Route path='/login' element={<Login setUser={setUser} user={setUser} />} />
