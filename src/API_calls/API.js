@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const login = async(values) => {
     try{
-       const data = await axios.post("http://localhost:8000/login", {...values});
+       const data = await axios.post("https://crossing-borders-backend.onrender.com/login", {...values});
        return data;
     }catch(err){
         console.log(err);
@@ -12,7 +12,7 @@ export const login = async(values) => {
 
 export const register = async(values) => {
     try{
-       const data = await axios.post("http://localhost:8000/register", {...values});
+       const data = await axios.post("https://crossing-borders-backend.onrender.com/register", {...values});
     //    console.log(data.data);
        return data.data;
        
@@ -24,7 +24,7 @@ export const register = async(values) => {
 
 export const getCountry = async (country) => {
     try{
-       const data = await axios.get(`http://localhost:8000/country/${country}`);
+       const data = await axios.get(`https://crossing-borders-backend.onrender.com/country/${country}`);
        return data.data.data;
     }catch(err){
         console.log(err);
