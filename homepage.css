@@ -1,0 +1,94 @@
+.Home{
+    background-image: url('src/images/background-image.jpg');
+    height: 100vh;
+    background-size: cover;
+  }
+
+ 
+  .hero{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translateY(-50%);
+  }
+  h1{
+    color: white;
+    margin: 20px 0px 20px;
+    font-size: 75px;
+  }
+  h3{
+    color: white;
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+  h4{
+    color: rgba(230, 214, 37, 0.8);
+    letter-spacing: 2px;
+    font-size: 20px;
+  }
+  h5{
+    color: aqua;
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+    
+  .moments{
+    color: #1280c9;
+    position: static;
+    background: none;
+    /* margin: 20px 0px 0px; */
+  }
+
+
+
+  .bottom{
+    width: 200px;
+    padding: 15PX 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 27px;
+    font-weight: bold;
+    border: 2px solid rgb(226, 212, 16) ;
+    background: transparent;
+    color: rgb(10, 92, 156);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#upper{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#upper:hover{
+    background-color: rgba(0,136,169,0.8);
+}
+
+span{
+    background: #d8ce05;
+    height: 90%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+.bottom:hover span{
+    width: 100%;
+}
+.bottom:hover{
+    border: none;
+}
