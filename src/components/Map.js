@@ -21,10 +21,14 @@ export default function Map({setCountry,countryData}) {
     
   }
   return (
-    <div className="Map">
-      <h3 className="text-yellow-50 flex items-center justify-center">Country : {showCountry}</h3>
-      <h1> selected country : {selectedCountry}</h1>
-      <SVGMap onLocationMouseOver={handleCountryOver} onLocationClick={handleCountryClick} map={map} />
+    <div className="flex flex-wrap justify-between items-center px-16 pt-5">
+      <div className="Map-details">
+        <h3 className="text-white font-black flex items-center justify-center bg-yellow-700 p-5 rounded-2xl">Country : <span className=" pl-3">{` ${showCountry}`}</span></h3>
+        {/* <h1> selected country : {selectedCountry}</h1> */}
+      </div>
+      <div className="Map">
+        <SVGMap onLocationMouseOver={handleCountryOver} onLocationClick={handleCountryClick} map={map} />
+      </div>
     </div>
   );
 }

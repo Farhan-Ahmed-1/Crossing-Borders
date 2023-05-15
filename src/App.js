@@ -11,6 +11,7 @@ import { Data } from "./utils/Data";
 import BarChart from './Charts/BarChart';
 import Login from './login-register/login';
 import Register from './login-register/register';
+import WhatsThis from './components/WhatsThis';
 
 Chart.register(CategoryScale);
 
@@ -21,13 +22,14 @@ function App() {
   <div className='App'>
       <Navbar user={user} setUser={setUser}/>
       <Routes>
-      <Route exact path='/' element={<Home />} />
+      <Route exact path='/' element={<Home user={user} />} />
       <Route path='/map' element={<Map setCountry={setCountry} country={country}/>} />
         
         {/* <Route path='/social' element={<SocialLInks />} /> */}
         <Route path='/chart' element={<BarChart country={country}/>} />
         <Route path='/login' element={<Login setUser={setUser} user={setUser} />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/whatsthis' element={<WhatsThis />} />
       </Routes>
     </div>
   );

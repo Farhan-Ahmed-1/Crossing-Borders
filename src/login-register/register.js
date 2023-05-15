@@ -2,6 +2,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import './register.css';
 import { register } from "../API_calls/API";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
+
 // Creating schema
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -11,16 +14,38 @@ const schema = Yup.object().shape({
     .required("Password is a required field")
     .min(8, "Password must be at least 8 characters"),
 });
+
+
 const Register = () => {
+  const navigate = useNavigate();
+  const notify = (status,notification) => {
+    if(status){
+      toast.success(notification);
+    }
+    else{
+          toast.error(notification);
+        }
+  }
+
   return (
     <div className="main">
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => {
+        onSubmit={async(values) => {
           // Alert the input values of the form that we filled
-        register(values);
+        const response = await register(values);
+        console.log(response);
+        if(response.status){
+          notify(response.status,response.msg);
+          setTimeout(() => {
+            navigate('/login');
+          }, 2000);
+        }
+        else{
+          notify(response.status,response.msg);
+        }
         console.log(JSON.stringify(values));
         }}
       >
@@ -73,6 +98,7 @@ const Register = () => {
           </div>
         )}
       </Formik>
+      <Toaster />
     </div>
   )
 }

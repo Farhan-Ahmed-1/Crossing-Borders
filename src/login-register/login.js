@@ -4,6 +4,8 @@ import './login.css';
 import { login } from "../API_calls/API";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
+
 // Creating schema
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -14,8 +16,18 @@ const schema = Yup.object().shape({
     .min(8, "Password must be at least 8 characters"),
 });
 
+const notify = (status,notification) => {
+  if(status){
+    toast.success(notification);
+  }
+  else{
+    toast.error(notification);
+  }
+}
+
 function Login({setUser, user}) {
   const navigate = useNavigate();
+  
   return (
     <div className="main">
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
@@ -25,11 +37,15 @@ function Login({setUser, user}) {
         onSubmit={async(values) => {
           // Alert the input values of the form that we filled
         const response = await login(values);
-        if(response!=="error"){
-          console.log(response);
-          setUser(response);
-          console.log(user);
-          navigate("/");
+        if(response.data.status){
+          setUser(response.data.data);
+          notify(response.data.status,response.data.message);
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        }
+        else{
+          notify(response.data.status,response.data.msg);
         }
         }}
       >
@@ -83,6 +99,8 @@ function Login({setUser, user}) {
           </div>
         )}
       </Formik>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
     </div>
   );
 }

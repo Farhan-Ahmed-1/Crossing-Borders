@@ -11,7 +11,6 @@ const BarChart = ({ country}) => {
     setFinalData (await getCountry(country))
     
   }
-  console.log(finalData.chart);
   const newChartData = {
     
     labels: finalData.chart.map((data) => data.year), 
