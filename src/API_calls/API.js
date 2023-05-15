@@ -20,3 +20,15 @@ export const register = async(values) => {
         console.log(err);
     }
 }
+
+export const getCountry = async (country) => {
+    console.log(country)    
+    try{
+       const data = await axios.get(`http://localhost:8000/country/${country}`);
+       console.log(data.data);
+       return data.data.data;
+    }catch(err){
+        console.log(err);
+        return "error";
+    }
+}

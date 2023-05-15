@@ -13,7 +13,7 @@ const schema = Yup.object().shape({
 });
 const Register = () => {
   return (
-    <>
+    <div className="main">
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
@@ -73,7 +73,7 @@ const Register = () => {
           </div>
         )}
       </Formik>
-    </>
+    </div>
   )
 }
 

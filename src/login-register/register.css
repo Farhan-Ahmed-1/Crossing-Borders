@@ -1,6 +1,7 @@
-body {
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-  }
+.main {
+  height: 91.2vh;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
   
   .login {
     width: 360px;

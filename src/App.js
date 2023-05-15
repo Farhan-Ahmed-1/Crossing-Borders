@@ -16,29 +16,16 @@ Chart.register(CategoryScale);
 
 function App() {
   const [user, setUser] = useState("");
-  const [chartData, setChartData] = useState({
-    labels: Data.map((data) => data.year), 
-    datasets: [
-      {
-        label: "Users Gained ",
-        data: Data.map((data) => data.userGain),
-        backgroundColor: [
-          "magenta",
-        ],
-        borderColor: "black",
-        borderWidth: 2
-      }
-    ]
-  });
+  const [country, setCountry] = useState("");
   return (
   <div className='App'>
       <Navbar user={user} setUser={setUser}/>
       <Routes>
       <Route exact path='/' element={<Home />} />
-      <Route path='/map' element={<Map />} />
+      <Route path='/map' element={<Map setCountry={setCountry} country={country}/>} />
         
         {/* <Route path='/social' element={<SocialLInks />} /> */}
-        <Route path='/chart' element={<BarChart chartData={chartData}/>} />
+        <Route path='/chart' element={<BarChart country={country}/>} />
         <Route path='/login' element={<Login setUser={setUser} user={setUser} />} />
         <Route path='/register' element={<Register />} />
       </Routes>
