@@ -1,5 +1,15 @@
-.Home{
-    background-image: url('../images/background-image.jpg');
+body{
+  background-image: url('../images/background-image.jpg');
     height: 100vh;
     background-size: cover;
+}
+
+.Home{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .content{
+    max-width: 500px;
   }
