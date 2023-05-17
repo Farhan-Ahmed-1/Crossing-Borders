@@ -38,9 +38,9 @@ const Home = ({user}) => {
       helped shape the world as we know it today.
     </h5>
     <div>
-      <button className="bottom text-purple-900 font-black bg-yellow-500 py-3 px-5 mr-20 rounded-xl hover:bg-yellow-300" type="button">
-        <span /> <Link to="/register">Regrister </Link>{" "}
-      </button>
+      <Link to='/register' className="bottom text-purple-900 font-black bg-yellow-500 py-3 px-5 mr-20 rounded-xl hover:bg-yellow-300" type="button">
+        Register
+      </Link>
       <button className="bottom text-purple-900 font-black bg-yellow-500 py-3 px-6 rounded-xl hover:bg-yellow-300" type="button">
         
         {
