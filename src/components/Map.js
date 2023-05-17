@@ -17,7 +17,6 @@ export default function Map({setCountry,countryData,setFlagUrl}) {
   const handleCountryClick = (path) =>{
     setSelectedCountry(path.target.getAttribute('id'));
     setCountry(path.target.getAttribute('id').toUpperCase());
-    // setFlagUrl(path.target.getAttribute('id').toUpperCase());
     navigate(`/chart`);
     
   }
@@ -25,7 +24,6 @@ export default function Map({setCountry,countryData,setFlagUrl}) {
     <div className="Map-details flex flex-wrap justify-between items-center px-16 pt-5">
       <div>
         <h3 className="text-white font-black flex items-center justify-center bg-yellow-700 p-5 rounded-2xl">Country : <span className=" pl-3">{` ${showCountry}`}</span></h3>
-        {/* <h1> selected country : {selectedCountry}</h1> */}
       </div>
       <div className="Map">
         <SVGMap onLocationMouseOver={handleCountryOver} onLocationClick={handleCountryClick} map={map} />
