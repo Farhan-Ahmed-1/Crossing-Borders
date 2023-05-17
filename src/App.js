@@ -18,6 +18,7 @@ Chart.register(CategoryScale);
 function App() {
   const [user, setUser] = useState("");
   const [country, setCountry] = useState("");
+  // const [flagUrl, setFlagUrl] = useState("");
   return (
   <div className='App'>
       <Navbar user={user} setUser={setUser}/>

@@ -6,7 +6,7 @@ import { SVGMap } from "react-svg-map";
 // import "react-svg-map/lib/index.css";
 import './Map.css'
 
-export default function Map({setCountry,countryData}) {
+export default function Map({setCountry,countryData,setFlagUrl}) {
   const navigate = useNavigate();
   const [showCountry, setShowCountry] = useState("Hover a country on the map");
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -17,6 +17,7 @@ export default function Map({setCountry,countryData}) {
   const handleCountryClick = (path) =>{
     setSelectedCountry(path.target.getAttribute('id'));
     setCountry(path.target.getAttribute('id').toUpperCase());
+    // setFlagUrl(path.target.getAttribute('id').toUpperCase());
     navigate(`/chart`);
     
   }

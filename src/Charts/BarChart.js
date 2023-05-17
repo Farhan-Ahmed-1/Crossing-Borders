@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Bar, Line, Pie } from "react-chartjs-2";
 import { getCountry } from '../API_calls/API';
+import CountryFlags from '../components/CountryFlags';
 const BarChart = ({ country}) => {
   const [finalData, setFinalData] = useState({chart:[{year:"",students:"",}],})
   useEffect(() => {
@@ -26,10 +27,14 @@ const BarChart = ({ country}) => {
       }
     ]
   }
+  let totalStudentCount = 0;
+  for(let i=0;i<finalData.chart.length;i++){
+    totalStudentCount = totalStudentCount + finalData.chart[i].students
+  }
+  console.log(totalStudentCount);
   return (
-    <div className="chart-container">
-      <h2 style={{ textAlign: "center" }}>Bar Chart</h2>
-      <div className='w-6/12 mx-auto my-10'>
+    <div className="flex flex-wrap justify-between mt-10 px-8">
+      <div className='w-6/12'>
       <Line
         data={newChartData}
         options={{
@@ -44,6 +49,11 @@ const BarChart = ({ country}) => {
           }
         }}
       />
+      </div>
+      <div className='w-4/12'>
+        < CountryFlags code = {country} />
+        <p>Country : <span className=''>{finalData.name}</span></p>
+        <p>Total Student Migrated : {totalStudentCount}</p>
       </div>
     </div>
   )
